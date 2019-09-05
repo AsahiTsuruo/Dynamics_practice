@@ -22,6 +22,8 @@ t = np.arange(0.0,20,dt)
 sol = odeint(func,state,t)
 
 theta = sol[:,0]
+#print(sol)
+#print(theta)
 x = L * sin(theta)
 y = - L * cos(theta)
 
