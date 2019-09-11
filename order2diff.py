@@ -21,14 +21,14 @@ print("initsets",initsets)
 #integration
 dt = 0.01
 t = np.arange(0,30,dt)
-trajectories = [scipy.integrate.odeint(f,x0,t,args,Dfun=None)for x0 in initsets]
+trajectories = [scipy.integrate.odeint(f,x0,t,args,Dfun=None) for x0 in initsets]
 print("trajectories",trajectories)
 
 vcolors = pylab.cm.autumn_r(np.linspace(0.3, 1.0, sample)) # color parameters
 for i,x in enumerate(trajectories):
     x = x.T
-    pylab.plot(t,x[0],'-',lw=2) #,label='(%.f, %.f)' % (x0[i],x1[i]))
+    pylab.plot(t,x[0],"-",lw=2) #,label='(%.f, %.f)' % (x0[i],x1[i]))
 pylab.xlabel("time",fontsize=20)
-pylab.ylabel("x",fontsize=20,rotation='horizontal')
-#pylab.savefig(name+'.eps')
+pylab.ylabel("x",fontsize=20,rotation="horizontal")
+pylab.savefig(name+".eps")
 pylab.show()
