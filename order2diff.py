@@ -16,13 +16,17 @@ sample = 5
 x0 = np.linspace(0.0,1.0,sample)
 x1 = np.zeros(sample)
 initsets = [np.array(x) for x in zip(x0,x1)]
-print("initsets",initsets)
+#print("initsets",initsets)
 
 #integration
 dt = 0.01
 t = np.arange(0,30,dt)
+"""
+for x0 in initsets:
+    print(x0)
+"""
 trajectories = [scipy.integrate.odeint(f,x0,t,args,Dfun=None) for x0 in initsets]
-print("trajectories",trajectories)
+#print("trajectories",trajectories)
 
 vcolors = pylab.cm.autumn_r(np.linspace(0.3, 1.0, sample)) # color parameters
 for i,x in enumerate(trajectories):
