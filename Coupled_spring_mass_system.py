@@ -8,8 +8,7 @@ def vectorfield(w,t,p):
     f = [y1,
         (-b1 * y1 - k1 * (x1-L1) + k2 * (x2 - x1 -L2)) / m1,
         y2,
-        (-b2 * y2 - k2 * (x2 - x1 - L2))/m2]
-
+        (-b2 * y2 - k2 * (x2 - x1 - L2)) / m2]
     return f
 
 # Parameter values
