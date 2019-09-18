@@ -13,24 +13,21 @@ def vectorfield(w,t,p):
 
 # Parameter values
 # Masses:
-m1 = 1.0
-m2 = 1.5
+m1,m2 = 1.0,1.5
+
 # Spring constants
-k1 = 8.0
-k2 = 40.0
+k1,k2 = 8.0,40.0
+
 # Natural lengths
-L1 = 0.5
-L2 = 1.0
+L1,L2 = 0.5,1.0
+
 # Friction coefficients
-b1 = 0.8
-b2 = 0.5
+b1,b2 = 0.8,0.5
 
 # Initial conditions
 # x1 and x2 are the initial displacements; y1 and y2 are the initial velocities
-x1 = 0.5
-y1 = 0.0
-x2 = 2.25
-y2 = 0.0
+x1,y1 = 0.5,0.0
+x2,y2 = 2.25,0.0
 
 # ODE solver parameters
 abserr = 1.0e-8
@@ -50,6 +47,7 @@ wsol = odeint(vectorfield, w0, t, args=(p,),atol=abserr, rtol=relerr)
 plt.plot(t,wsol[:,0],label="x1")
 plt.plot(t,wsol[:,2],label="x2")
 plt.xlabel("t")
+plt.title("coupled spring mass system")
 plt.legend()
 plt.grid()
 plt.show()
