@@ -4,6 +4,7 @@
 ・Pythonで1自由度非減衰系の自由振動シミュレーション　https://watlab-blog.com/2019/06/09/python-1dof-simulation/ <br>
 ・scipy で2階常微分方程式の数値解を求める　https://qiita.com/chase0213/items/95a107c013e4a6dbd7b5 <br>
 ・Pythonで数値計算　http://japanichaos.appspot.com/ODE2.html <br>
-・Scipy cookbook https://scipy-cookbook.readthedocs.io/items/CoupledSpringMassSystem.html
+・Scipy cookbook https://scipy-cookbook.readthedocs.io/items/CoupledSpringMassSystem.html<br>
+・Nelder Mead Method を python で実装　https://nykergoto.hatenablog.jp/entry/2019/11/06/Nelder_Mead_Method_%E3%82%92_python_%E3%81%A7%E5%AE%9F%E8%A3%85
 
 
