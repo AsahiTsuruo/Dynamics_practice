@@ -1,6 +1,6 @@
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
-
+import numpy as np
 def vectorfield(w,t,p):
     x1,y1,x2,y2 = w
     m1,m2,k1,k2,L1,L2,b1,b2 = p
@@ -13,16 +13,16 @@ def vectorfield(w,t,p):
 
 # Parameter values
 # Masses:
-m1,m2 = 1.0,1.5
+m1,m2 = 30,10
 
 # Spring constants
-k1,k2 = 8.0,40.0
+k1,k2 = 100.0,10.0
 
 # Natural lengths
-L1,L2 = 0.5,1.0
+L1,L2 = 36,88
 
 # Friction coefficients
-b1,b2 = 0.8,0.5
+b1,b2 = 1.0,1.0
 
 # Initial conditions
 # x1 and x2 are the initial displacements; y1 and y2 are the initial velocities
@@ -35,7 +35,7 @@ relerr = 1.0e-6
 stoptime = 10.0
 numpoints = 250
 
-t = [stoptime * float(i) / (numpoints - 1) for i in range(numpoints)]
+t = np.arange(0,50.02,0.02)
 
 # Pack up the parameters and initial conditions:
 p = [m1, m2, k1, k2, L1, L2, b1, b2]
