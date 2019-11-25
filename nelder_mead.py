@@ -79,6 +79,7 @@ ax.contour(xx, yy, z, levels=100)
 ax.scatter(1, 1, s=100, edgecolor='black', facecolors='none')
 fig.tight_layout()
 fig.savefig('objective.png')
+
 fig, ax = plt.subplots(figsize=(6, 6))
 ax.plot(*best_points.T, 'o--', c='black')
 cs = ax.contour(xx, yy, z, levels=20)
