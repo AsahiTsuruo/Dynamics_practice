@@ -55,5 +55,7 @@ for i in range(100):
             eval_points[-1] = p_reflect
     # 反射点が二番目に悪い点より良くない時
     elif f_second_worse <= f_ref:
+        # 重心と最悪点の間を計算
+        
 
 
