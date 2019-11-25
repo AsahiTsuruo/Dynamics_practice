@@ -1,6 +1,8 @@
 import numpy as np
+import matplotlib.pyplot as plt
+
 def objective(x, y):
-    return (x - 0.1) ** 2 + (y - 0.3) ** 2 + np.sin((x + 0.5) * 2) * np.sin(y * 3) + sigmoid(x * 4)
+    return (x - 0.1) ** 2 + (y - 0.3) ** 2 + np.sin((x + 0.5) * 2) * np.sin(y * 3) + sigmoid(4)
 def sigmoid(x):
     s = 1 / (1 + np.exp(-x))
     return s
@@ -18,7 +20,7 @@ eval_points = np.vstack([init_point + np.eye(2) * scaling_factor,init_point])
 print("eval points",eval_points)
 best_points = [init_point]
 print("best_points",best_points)
-print("aaa",objective(eval_points[:,0],eval_points[:,1]))
+
 for i in range(100):
     # 目的関数で評価して並び替え
     objective_values_by_point = objective(eval_points[:,0],eval_points[:,1])
@@ -56,6 +58,34 @@ for i in range(100):
     # 反射点が二番目に悪い点より良くない時
     elif f_second_worse <= f_ref:
         # 重心と最悪点の間を計算
-        
+        p_cont = centroid + rho * (p_worst - centroid)
+        f_cont = objective(*p_cont)
+
+        # 縮小点が最悪よりは良い時
+        # 重心方向への移動は良いと判断して最悪点を置き換え
+        if f_cont < f_worst:
+            eval_points[-1] = p_cont
+        else:
+            # そうでない時最良点めがけて縮小させる
+            shrink_points = eval_points[0] + sigma * (eval_points - eval_points[0])
+            eval_points[1:] = shrink_points[1:]
+
+best_points = np.vstack([best_points, eval_points[0]])
+fig, ax = plt.subplots(figsize=(6, 6))
+grid_poinst = np.linspace(-2, 2, 101)
+xx, yy = np.meshgrid(grid_poinst, grid_poinst)
+z = objective(xx, yy)
+ax.contour(xx, yy, z, levels=100)
+ax.scatter(1, 1, s=100, edgecolor='black', facecolors='none')
+fig.tight_layout()
+fig.savefig('objective.png')
+fig, ax = plt.subplots(figsize=(6, 6))
+ax.plot(*best_points.T, 'o--', c='black')
+cs = ax.contour(xx, yy, z, levels=20)
+ax.clabel(cs)
+ax.set_title(f'Nelder Mead Method (Scale {scaling_factor})')
+ax.set_xlim(ax.set_ylim(-2, 2))
+fig.tight_layout()
+fig.savefig(f'result_scale={scaling_factor}.png', dpi=120)
 
 
