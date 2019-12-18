@@ -88,5 +88,3 @@ ax.set_title(f'Nelder Mead Method (Scale {scaling_factor})')
 ax.set_xlim(ax.set_ylim(-2, 2))
 fig.tight_layout()
 fig.savefig(f'result_scale={scaling_factor}.png', dpi=120)
-
-

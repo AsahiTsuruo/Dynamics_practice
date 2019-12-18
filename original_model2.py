@@ -6,7 +6,7 @@ def ff_h(F_h,omega_h,t):
     return F_h * (0.5 * np.sin(omega_h * t)/(omega_h*t))
 
 def ff_r(F_r,omega_r,gamma_r,t):
-    return F_r * (0.5 * np.sin(gamma_r + omega_r * t))
+    return F_r * (0.5 * np.sin(omega_r * t))
 
 def kin_f(z,t,p):
     z_h_eta = 1.24
@@ -26,12 +26,12 @@ def kin_f(z,t,p):
      
     return f
 def main():
-    z_h,v_h = 0.0,0.0
-    z_r,v_r = 0.0,0.0
+    z_h,v_h = 1.24,0.0
+    z_r,v_r = 0.6,0.0
 
-    k_r = 90000.0
-    k_h = 52000.0
-    c_r = 5000.0
+    k_r = 9000.0
+    k_h = 5200.0
+    c_r = 3000.0
     c_h = 5000.0
     m_r = 60.0
     m_h = 600.0
@@ -48,7 +48,7 @@ def main():
     p = (k_r,k_h,c_r,c_h,m_r,m_h,F_h,F_r,gamma_r,omega_h,omega_r,g)
 
     dt = 0.005
-    t = np.arange(-0.835*10,0.835*10,dt)
+    t = np.arange(-0.835*12,0.835*12,dt)
     abserr = 1.0e-8
     relerr = 1.0e-6
     trajectory = odeint(kin_f,initset,t,args=(p,),Dfun=None,atol=abserr, rtol=relerr)
@@ -61,8 +61,10 @@ def main():
     t = np.arange(0,0.835*6,dt)
     #z_h = trajectory[167*24:,0] - np.average(trajectory[167*24:,0])
     #z_r = trajectory[167*24:,2] - np.average(trajectory[167*24:,2])
-    z_h = trajectory[1670-167*2:1670+167*4,0] - np.average(trajectory[1670-167*2:1670+167*4,0])
-    z_r = trajectory[1670-167*2:1670+167*4,2] - np.average(trajectory[1670-167*2:1670+167*4,2])
+    #z_h = trajectory[1670-167*2:1670+167*3,0] - np.average(trajectory[1670-167*2:1670+167*3,0])
+    #z_r = trajectory[1670-167*2:1670+167*3,2] - np.average(trajectory[1670-167*2:1670+167*3,2])
+    z_h = trajectory[1670+167*5:1670+167*11,0] - np.average(trajectory[1670+167*5:1670+167*11,0])
+    z_r = trajectory[1670+167*5:1670+167*11,2] - np.average(trajectory[1670+167*5:1670+167*11,2])
     #print("ave",np.average(trajectory[167*4:,0]),np.average(trajectory[167*4:,2]))
     #v_h = trajectory[167*24:,1]
     #v_r = trajectory[167*24:,3]
