@@ -7,4 +7,5 @@
 ・Scipy cookbook https://scipy-cookbook.readthedocs.io/items/CoupledSpringMassSystem.html<br>
 ・Nelder Mead Method を python で実装　https://nykergoto.hatenablog.jp/entry/2019/11/06/Nelder_Mead_Method_%E3%82%92_python_%E3%81%A7%E5%AE%9F%E8%A3%85<br>
 ・そうだ!研究しよう　https://kenyu-life.com/2019/06/01/dhsm/ <br>
+・[Pythonで数値解析](第6回)補間法　https://qiita.com/Y_F_Acoustics/items/69597fd7911b022a1d72　<br>
 
