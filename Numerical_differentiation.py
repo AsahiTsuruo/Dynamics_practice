@@ -13,6 +13,7 @@ k = 2
 y = sample_func(x)
 d = nummerical_diff(sample_func,k)
 y2 = d * x2 + sample_func(k) - d*k
+print(d)
 
 plt.plot(x,y)
 plt.plot(x2,y2)
