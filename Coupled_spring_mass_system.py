@@ -13,16 +13,16 @@ def vectorfield(w,t,p):
 
 # Parameter values
 # Masses:
-m1,m2 = 30,10
+m1,m2 = 1.0,1.5
 
 # Spring constants
-k1,k2 = 100.0,10.0
+k1,k2 = 8.0,40.0
 
 # Natural lengths
-L1,L2 = 36,88
+L1,L2 = 0.5,1.0
 
 # Friction coefficients
-b1,b2 = 1.0,1.0
+b1,b2 = 0.8,0.5
 
 # Initial conditions
 # x1 and x2 are the initial displacements; y1 and y2 are the initial velocities
@@ -35,7 +35,7 @@ relerr = 1.0e-6
 stoptime = 10.0
 numpoints = 250
 
-t = np.arange(0,50.02,0.02)
+t = np.arange(0,10.02,0.02)
 
 # Pack up the parameters and initial conditions:
 p = [m1, m2, k1, k2, L1, L2, b1, b2]
